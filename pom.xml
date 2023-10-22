@@ -166,6 +166,12 @@
 
 </dependency>
 
+<dependency>
+	<groupId>com.vimalselvam</groupId>
+	<artifactId>cucumber-extentsreport</artifactId>
+	<version>3.0.2</version>
+</dependency>
+
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 
 <dependency>
