@@ -4,7 +4,7 @@ Feature: Buy Samsung S22 on Amezon Application
   @AmezonIndia
   Scenario Outline: Validate for buy product on amezon app
     Given user navigate on home screen
-    When click on search and enter "<Product>"
+    When click on search and enter data from Excel sheet <TestData> <RowNum> <ColNum>
     And click on our product
     And click on Buy Now button
     And select address and click on Continue button
