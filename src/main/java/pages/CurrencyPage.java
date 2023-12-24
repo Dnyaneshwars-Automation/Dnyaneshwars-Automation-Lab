@@ -58,6 +58,12 @@ public void selectcurrency2() {
 public void selectcurrency3() {
 	clickDollarCurrency.click();
 }
+
+public void verifycurrency1() {
+	verifyEuroCurrency.isDisplayed();
+	System.out.println(verifyEuroCurrency.getText());
+		
+}
 public void takeScreenshot(String screenshotName) throws IOException {
     try {
         TakesScreenshot ts = (TakesScreenshot) driver;
@@ -69,11 +75,6 @@ public void takeScreenshot(String screenshotName) throws IOException {
     }
 }
 
-public void verifycurrency1() {
-	verifyEuroCurrency.isDisplayed();
-	System.out.println(verifyEuroCurrency.getText());
-		
-}
 
 public void verifycurrency2() {
 	verifyPoundCurrency.getText();

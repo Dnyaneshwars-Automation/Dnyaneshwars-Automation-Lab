@@ -11,10 +11,9 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun=false,
 		monochrome=true,
 		features="src/test/resources/Features",
-		glue={"stepdefination, hook"},
-		tags= ("@"),
-		plugin= {"pretty", "html:target/cucumber-reports.", 
-				"com.aventstuck.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+		glue={"stepdefination"},
+		tags= ("@SanityTestAutomation_Login"),
+		plugin= {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"}
 		)
 
 
