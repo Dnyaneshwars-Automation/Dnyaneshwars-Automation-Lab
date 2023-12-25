@@ -8,11 +8,11 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		dryRun=false,
+		dryRun=true,
 		monochrome=true,
 		features="src/test/resources/Features",
 		glue={"stepdefination"},
-		tags= ("@SanityTestAutomation_AddNewCustomer"),
+		tags= ("@SanityTestAutomation_SearchCustomer"),
 		plugin= {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"}
 		)
 

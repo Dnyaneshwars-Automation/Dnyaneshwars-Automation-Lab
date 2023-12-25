@@ -1,6 +1,6 @@
 Feature: Validate Login Page
 
-  @SanityTestAutomation_Login
+  @SanityTestAutomation_Login1
   Scenario Outline: login with invalid email and valid password
     Given user navigate to login page
     When user enterd "<email>" and "<password>"
