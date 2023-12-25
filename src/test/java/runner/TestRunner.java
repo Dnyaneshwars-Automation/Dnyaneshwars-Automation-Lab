@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		monochrome=true,
 		features="src/test/resources/Features",
 		glue={"stepdefination"},
-		tags= ("@SanityTestAutomation_Login"),
+		tags= ("@SanityTestAutomation_AddNewCustomer"),
 		plugin= {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"}
 		)
 
