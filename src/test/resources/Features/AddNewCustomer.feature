@@ -27,7 +27,7 @@ Feature: Customers Page
     Then customers webtable is display
     And find the number of table row
     And find the number of table column
-    And find the virat kohali customer by name
+    And find the james pan customer by name
     And retrive the all table data
     And retrive the indian cricket team customer name and customer role from table
 

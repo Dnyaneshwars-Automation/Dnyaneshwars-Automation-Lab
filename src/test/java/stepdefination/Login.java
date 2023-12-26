@@ -14,6 +14,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.LoginPage;
+import pageObject.SearchCustomerPage;
 import pageObject.AddNewCustomer;
 import pageObject.HomePage;
 
@@ -23,7 +24,7 @@ public class Login {
        LoginPage loginpage;
        HomePage homepage;
        AddNewCustomer addnewcustomer;
-
+       SearchCustomerPage searchcustomerpage;
 	
 	@Before 
 	public void setUpBrowser() {
@@ -108,32 +109,33 @@ public class Login {
 	
 	@Then("customers webtable is display")
 	public void customers_webtable_is_display() {
-	  
+		searchcustomerpage=new SearchCustomerPage(driver);
+		searchcustomerpage.verifyCustomersWebTableDisplay();
 	}
 
 	@Then("find the number of table row")
 	public void find_the_number_of_table_row() {
-	   
+		searchcustomerpage.findTotalNumberOfRow();
 	}
 
 	@Then("find the number of table column")
 	public void find_the_number_of_table_column() {
-	   
+		searchcustomerpage.findTotalNumberOfColumn();
 	}
 
-	@Then("find the virat kohali customer by name")
-	public void find_the_virat_kohali_customer_by_name() {
-	   
+	@Then("find the james pan customer by name")
+	public void find_the_james_pan_customer_by_name() {
+		searchcustomerpage.findCustomerRow();
 	}
 
 	@Then("retrive the all table data")
 	public void retrive_the_all_table_data() {
-	   
+		searchcustomerpage.customerTableData();
 	}
 
 	@Then("retrive the indian cricket team customer name and customer role from table")
 	public void retrive_the_indian_cricket_team_customer_name_and_customer_role_from_table() {
-	   
+		searchcustomerpage.retriveIndianCricketTeamNameAndRole();
 	}
 
 
