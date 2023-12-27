@@ -1,7 +1,6 @@
 Feature: Customers Page
 
-	
-  @SanityTestAutomation_AddNewCustomer
+  @SanityTestAutomation @AddNewCustomer
   Scenario Outline: Add New Customer
     Given user navigate to login page
     When user enterd "<email>" and "<password>"
@@ -17,8 +16,8 @@ Feature: Customers Page
       | email               | password |
       | admin@yourstore.com | admin    |
 
-  @SanityTestAutomation_SearchCustomer
-  Scenario Outline: Search Customer By Email or Name
+  @SanityTestAutomation @SearchCustomerwebTable
+  Scenario Outline: Search Customer By TableData
     Given user navigate to login page
     When user enterd "<email>" and "<password>"
     And click on login button
@@ -34,3 +33,35 @@ Feature: Customers Page
     Examples: 
       | email               | password |
       | admin@yourstore.com | admin    |
+
+  @SanityTestAutomation @SearchCustomer @ByEmail
+  Scenario Outline: Search Customer By Email
+    Given user navigate to login page
+    When user enterd "<email>" and "<password>"
+    And click on login button
+    And click on customers hidden button
+    And click on customers option
+    Then customers webtable is display
+    And enter search customer "<emailAddress>"
+    And click on search button
+    Then verify the search result from customers table
+
+    Examples: 
+      | email               | password | emailAddress                      |
+      | admin@yourstore.com | admin    | victoria_victoria@nopCommerce.com |
+
+  @SanityTestAutomation @SearchCustomer @ByName
+  Scenario Outline: Search Customer By Name
+    Given user navigate to login page
+    When user enterd "<email>" and "<password>"
+    And click on login button
+    And click on customers hidden button
+    And click on customers option
+    Then customers webtable is display
+    And enter search customer by name "<customerName>"
+    And click on search button
+    Then verify the search result from customers table
+
+    Examples: 
+      | email               | password | customerName |
+      | admin@yourstore.com | admin    | Steve  |

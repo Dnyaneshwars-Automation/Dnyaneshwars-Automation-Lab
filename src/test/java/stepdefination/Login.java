@@ -30,6 +30,7 @@ public class Login {
 	public void setUpBrowser() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver.exe"); 
 		ChromeOptions options=new ChromeOptions();
+		options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
 		DriverFactory.initializebrowser("chrome", options);
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
@@ -137,6 +138,33 @@ public class Login {
 	public void retrive_the_indian_cricket_team_customer_name_and_customer_role_from_table() {
 		searchcustomerpage.retriveIndianCricketTeamNameAndRole();
 	}
+
+	// Search Customer By Email
+	
+	@Then("enter search customer {string}")
+	public void enter_search_customer(String emailAddress) {
+		searchcustomerpage.enterSearchCustomerEmailAddress(emailAddress);
+	}
+	
+	
+	@Then("enter search customer by name {string}")
+	public void enter_search_customer_by_name(String customerName) {
+		searchcustomerpage.enterSearchCustomerName(customerName);
+	}
+	
+	@Then("click on search button")
+	public void click_on_search_button() {
+		searchcustomerpage.clickSearchButton();
+	}
+
+	@Then("verify the search result from customers table")
+	public void verify_the_search_result_from_customers_table_victoria_victoria_nop_commerce_com() {
+		searchcustomerpage.verifySearchResultByEmail();
+		searchcustomerpage.verifySearchResultByName();
+	}
+
+
+
 
 
 }

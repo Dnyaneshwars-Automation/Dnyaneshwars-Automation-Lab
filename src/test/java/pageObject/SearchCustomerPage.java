@@ -32,6 +32,15 @@ public class SearchCustomerPage {
 	@FindBy(xpath="//div[@class='dataTables_scrollBody']//tbody//tr[2]//td/..")
 	WebElement verifyCustomerRowData;
 	
+	@FindBy(xpath="//input[@id='SearchEmail' or @name='SearchEmail']")
+	WebElement searchEmailTxt;
+	
+	@FindBy(xpath="//input[@id='SearchFirstName' or @name='SearchFirstName']")
+	WebElement searchNameTxt;
+	
+	@FindBy(xpath="//button[@id='search-customers']")
+	WebElement searchBtn;
+	
 	
 	public void verifyCustomersWebTableDisplay () {
 		webTableDisplay.isDisplayed();
@@ -84,6 +93,61 @@ public class SearchCustomerPage {
 			}
 		}
 		
+		
+	}
+	
+	public void enterSearchCustomerEmailAddress (String emailAddress) {
+		searchEmailTxt.sendKeys(emailAddress);
+	}
+	
+	public void enterSearchCustomerName (String customerName) {
+		searchNameTxt.sendKeys(customerName);
+	}
+	
+	public void clickSearchButton () {
+		searchBtn.click();
+	}
+	
+	public void verifySearchResultByEmail () {
+		int tRow= rowCount.size();
+		int tColumn= columnCount.size();
+		boolean flag=false;
+		 String emailFound="victoria_victoria@nopCommerce.com";
+		for(int i=1; i<=tRow; i++) {
+			//for(int j=1; j<=tColumn; j++) {
+			String searchEmail= driver.findElement(By.xpath("//div[@class='dataTables_scrollBody']//tbody//tr["+i+"]//td[2]")).getText();
+			
+			if(searchEmail.equals(emailFound)) {
+			flag=true;
+			String dataRow=driver.findElement(By.xpath("//table[@class='table table-bordered table-hover table-striped dataTable no-footer']//tbody//tr["+i+"]")).getText();
+			System.out.println(dataRow);
+			System.out.println(searchEmail);
+		}
+		else {
+			flag=false;
+		}
+			}
+		
+	}
+	
+	public void verifySearchResultByName () {
+		int tRow= rowCount.size();
+		boolean flag=false;
+		 String name="Steve";
+		for(int i=1; i<=tRow; i++) {
+			//for(int j=1; j<=tColumn; j++) {
+			String searchName= driver.findElement(By.xpath("//div[@class='dataTables_scrollBody']//tbody//tr["+i+"]//td[3]")).getText();
+	
+			if(searchName.equals(name)) {
+			flag=true;
+			String dataRow1=driver.findElement(By.xpath("//table[@class='table table-bordered table-hover table-striped dataTable no-footer']//tbody//tr["+i+"]")).getText();
+			System.out.println(dataRow1);
+			System.out.println(searchName);
+		}
+		else {
+			flag=false;
+		}
+			}
 		
 	}
 
