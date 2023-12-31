@@ -1,12 +1,15 @@
 package pageObject;
 
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import io.cucumber.datatable.DataTable;
 
 public class SearchCustomerPage {
 	
@@ -41,6 +44,11 @@ public class SearchCustomerPage {
 	@FindBy(xpath="//button[@id='search-customers']")
 	WebElement searchBtn;
 	
+	@FindBy(xpath="//input[@id='SearchLastName' or @name='SearchLastName']")
+	WebElement searchLastNameTxt;
+	
+	@FindBy(xpath="//input[@id='SearchCompany']")
+	WebElement companyNameTxt;
 	
 	public void verifyCustomersWebTableDisplay () {
 		webTableDisplay.isDisplayed();
@@ -150,5 +158,49 @@ public class SearchCustomerPage {
 			}
 		
 	}
+	
+	public void enterEmail(String Email) {
+		searchEmailTxt.clear();
+		searchEmailTxt.sendKeys(Email);
+		}
+	
+	public void enterFirstName(String FirstName) {	
+		searchNameTxt.clear();
+		searchNameTxt.sendKeys(FirstName);
+		}
+		
+	public void enterLastName(String LastName) {
+		searchLastNameTxt.clear();
+		searchLastNameTxt.sendKeys(LastName);
+		}
+		
+	public void enterCompanyName(String CompanyName) {	
+		companyNameTxt.clear();
+		companyNameTxt.sendKeys(CompanyName);
+		
+	}
+	
+	public void verifySearchResultByAllDetails () {
+		int tRow= rowCount.size();
+		boolean flag=false;
+		 String name="John";
+		for(int i=1; i<=tRow; i++) {
+			//for(int j=1; j<=tColumn; j++) {
+			String searchName= driver.findElement(By.xpath("//div[@class='dataTables_scrollBody']//tbody//tr["+i+"]//td[3]")).getText();
+	
+			if(searchName.equals(name)) {
+			flag=true;
+			String dataRow1=driver.findElement(By.xpath("//table[@class='table table-bordered table-hover table-striped dataTable no-footer']//tbody//tr["+i+"]")).getText();
+			System.out.println(dataRow1);
+			System.out.println(searchName);
+		}
+		else {
+			flag=false;
+		}
+			}
+		
+	}
+		
+	}
 
-}
+

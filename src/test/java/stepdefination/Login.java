@@ -1,5 +1,7 @@
 package stepdefination;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -7,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import factory.DriverFactory;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -161,9 +164,19 @@ public class Login {
 	public void verify_the_search_result_from_customers_table_victoria_victoria_nop_commerce_com() {
 		searchcustomerpage.verifySearchResultByEmail();
 		searchcustomerpage.verifySearchResultByName();
+		searchcustomerpage.verifySearchResultByAllDetails();
 	}
 
-
+	@Then("enter search customer all details")
+	public void enter_search_customer_all_details(DataTable dataTable) {
+		List<Map<String, String>> dataMap=dataTable.asMaps(String.class,String.class);
+		for(Map<String,String>list:dataMap) {
+		searchcustomerpage.enterEmail(list.get("Email"));
+		searchcustomerpage.enterEmail(list.get("FirstName"));
+		searchcustomerpage.enterEmail(list.get("LastName"));
+		searchcustomerpage.enterEmail(list.get("CompanyName"));
+	}
+	}
 
 
 

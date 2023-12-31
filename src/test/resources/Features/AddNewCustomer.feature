@@ -64,4 +64,23 @@ Feature: Customers Page
 
     Examples: 
       | email               | password | customerName |
-      | admin@yourstore.com | admin    | Steve  |
+      | admin@yourstore.com | admin    | Steve        |
+
+  @SanityTestAutomation @SearchCustomer @WithAllDetails
+  Scenario Outline: Search Customer By Name
+    Given user navigate to login page
+    When user enterd "<email>" and "<password>"
+    And click on login button
+    And click on customers hidden button
+    And click on customers option
+    Then customers webtable is display
+    And enter search customer all details
+      | Email                       | FirstName | LastName | CompanyName         |
+      | kiyjcycyhjc676008@gmail.com | Virat     | Kohli    | Indian Cricket Team |
+      | Qyhdu@gmail.com             | John      | Doe1     | BusyQA              |
+    And click on search button
+    Then verify the search result from customers table
+
+    Examples: 
+      | email               | password | customerName |
+      | admin@yourstore.com | admin    | Steve        |
