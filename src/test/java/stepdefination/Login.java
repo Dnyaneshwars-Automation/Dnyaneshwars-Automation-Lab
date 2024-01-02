@@ -2,16 +2,13 @@ package stepdefination;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 
 import factory.DriverFactory;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,42 +16,61 @@ import io.cucumber.java.en.When;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
 import pageObject.AddNewCustomer;
+import pageObject.CustomersOrderPage;
 import pageObject.HomePage;
 
 public class Login {
 	
 	public static WebDriver driver;
+	
+	 //public static Logger log;
+	
        LoginPage loginpage;
        HomePage homepage;
        AddNewCustomer addnewcustomer;
        SearchCustomerPage searchcustomerpage;
+       CustomersOrderPage customerorderpage;
+       
 	
-	@Before 
-	public void setUpBrowser() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver.exe"); 
-		ChromeOptions options=new ChromeOptions();
-		options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
-		DriverFactory.initializebrowser("chrome", options);
-		driver=DriverFactory.getDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.get("https://admin-demo.nopcommerce.com/login");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-	}
-	
-	@After
-	public void tearDown() {
-		driver.close();
-	}
+//       @Before
+//       public void setUp() {
+//           setUpBrowser();
+//       }
+//
+//       public void tearDown() {
+//           if (driver != null) {
+//               driver.quit();
+//           }
+//       }
+       
+//	@Before 
+//	public void setUpBrowser() {
+//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver.exe"); 
+//		ChromeOptions options=new ChromeOptions();
+//		options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
+//		DriverFactory.initializebrowser("chrome", options);
+//		driver=DriverFactory.getDriver();
+//		driver.manage().window().maximize();
+//		driver.manage().deleteAllCookies();
+//		driver.get("https://admin-demo.nopcommerce.com/login");
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		
+//	}
+//	
+//	@After
+//	public void tearDown() {
+//		driver.close();
+//	}
 	
 	@Given("user navigate to login page")
 	public void user_navigate_to_login_page() {
-		
+		//log = LogManager.getLogger("Login");
+		driver=DriverFactory.getDriver();
 	}
 
 	@When("user enterd {string} and {string}")
 	public void user_enterd_and(String email, String password) {
+		driver=DriverFactory.getDriver();
 		loginpage=new LoginPage(driver);
 		loginpage.enterEmail(email);
 		loginpage.enterPassword(password);
@@ -178,6 +194,23 @@ public class Login {
 	}
 	}
 
+	//Salse Order Page
+	
+	@And("click on sales hidden button")
+	public void click_on_sales_hidden_button() {
+		customerorderpage=new 	CustomersOrderPage(driver);
+		customerorderpage.clickOnSalesButton();
+	}
+
+	@And("click on order option")
+	public void click_on_order_option() {
+		customerorderpage.clickOnSalesOrderButton();
+	}
+
+	@Then("verify the required date selected")
+	public void verify_the_required_date_selected() {
+		customerorderpage.clickOnStartDataCalenderandSelectStartDate();
+	}
 
 
 }
