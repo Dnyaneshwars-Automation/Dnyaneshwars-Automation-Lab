@@ -23,7 +23,7 @@ public class Login {
 	
 	public static WebDriver driver;
 	
-	 //public static Logger log;
+	private static Logger logger = LogManager.getLogger(Login.class);
 	
        LoginPage loginpage;
        HomePage homepage;
@@ -32,39 +32,10 @@ public class Login {
        CustomersOrderPage customerorderpage;
        
 	
-//       @Before
-//       public void setUp() {
-//           setUpBrowser();
-//       }
-//
-//       public void tearDown() {
-//           if (driver != null) {
-//               driver.quit();
-//           }
-//       }
-       
-//	@Before 
-//	public void setUpBrowser() {
-//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver.exe"); 
-//		ChromeOptions options=new ChromeOptions();
-//		options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
-//		DriverFactory.initializebrowser("chrome", options);
-//		driver=DriverFactory.getDriver();
-//		driver.manage().window().maximize();
-//		driver.manage().deleteAllCookies();
-//		driver.get("https://admin-demo.nopcommerce.com/login");
-//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//		
-//	}
-//	
-//	@After
-//	public void tearDown() {
-//		driver.close();
-//	}
-	
 	@Given("user navigate to login page")
 	public void user_navigate_to_login_page() {
-		//log = LogManager.getLogger("Login");
+		logger = LogManager.getLogger("Login");
+		logger.info("Logger information message");
 		driver=DriverFactory.getDriver();
 	}
 
