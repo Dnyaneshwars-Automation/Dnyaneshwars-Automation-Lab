@@ -12,11 +12,11 @@ import io.cucumber.junit.CucumberOptions;
 		monochrome=true,
 		features="src/test/resources/Features",
 		glue={"stepdefination","hooks"},
-		tags= ("@SanityTestAutomation_Login1"),
+		tags= ("@SanityTestAutomation_Login"),
 		plugin= {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"}
 		)
 
 
-public class TestRunner {
+public class TestRunner_Junit {
 
 }

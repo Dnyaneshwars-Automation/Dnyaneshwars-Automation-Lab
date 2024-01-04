@@ -39,7 +39,7 @@ public class LoginPage {
 
 	public void enterPassword(String password) {
 		passwordTxt.clear();
-		passwordTxt.sendKeys();
+		passwordTxt.sendKeys(password);
 	}
 	
 	public void clickOnLoginButton () {
