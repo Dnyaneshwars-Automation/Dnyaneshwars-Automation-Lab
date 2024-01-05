@@ -46,3 +46,15 @@ INFO  2024-01-04 23:17:27 [main] MyHook - Browser Teardown Successfully
 INFO  2024-01-04 23:20:14 [main] MyHook - Browser SetUp Successfully
 INFO  2024-01-04 23:20:14 [main] Login - Logger information message
 INFO  2024-01-04 23:20:51 [main] MyHook - Browser Teardown Successfully
+INFO  2024-01-05 10:28:30 [main] MyHook - Browser SetUp Successfully
+INFO  2024-01-05 10:28:31 [main] Login - Logger information message
+INFO  2024-01-05 10:28:40 [main] MyHook - Browser Teardown Successfully
+INFO  2024-01-05 10:28:48 [main] MyHook - Browser SetUp Successfully
+INFO  2024-01-05 10:28:48 [main] Login - Logger information message
+INFO  2024-01-05 10:29:30 [main] MyHook - Browser Teardown Successfully
+INFO  2024-01-05 11:06:19 [main] MyHook - Browser SetUp Successfully
+INFO  2024-01-05 11:06:19 [main] Login - Logger information message
+INFO  2024-01-05 11:06:28 [main] MyHook - Browser Teardown Successfully
+INFO  2024-01-05 11:06:36 [main] MyHook - Browser SetUp Successfully
+INFO  2024-01-05 11:06:36 [main] Login - Logger information message
+INFO  2024-01-05 11:07:11 [main] MyHook - Browser Teardown Successfully
