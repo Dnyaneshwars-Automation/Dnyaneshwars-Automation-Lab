@@ -11,7 +11,7 @@ Feature: Validate Login Page
       | email               | password |
       | admin@yourstore.com | admin    |
 
-  @SanityTestAutomation_Login
+  @SanityTestAutomation_Login1
   Scenario Outline: login with valid email and invalid password
     Given user navigate to login page
     When user enterd "<email>" and "<password>"

@@ -68,15 +68,14 @@
 
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <dependency>
-
-	<groupId>io.cucumber</groupId>
-	<artifactId>cucumber-junit</artifactId>
-	<version>7.13.0</version>
-
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.1</version>
+    <scope>test</scope>
 </dependency>
+
 
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
 
@@ -194,7 +193,7 @@
                 <configuration>
                     <!-- Include your test configuration here -->
                     <includes>
-						<exclude>**/*Runner_Junit.java</exclude>
+						<exclude>**/*Runner.java</exclude>
 					</includes>
                 </configuration>
             </plugin>
