@@ -76,16 +76,13 @@
     <scope>test</scope>
 </dependency>
 
-
-<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-
 <dependency>
-
-	<groupId>io.cucumber</groupId>
-	<artifactId>cucumber-testng</artifactId>
-	<version>7.13.0</version>
-
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>7.13.0</version> <!-- Use the same version as cucumber-java -->
+        <scope>test</scope>
 </dependency>
+    
 
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm-deps -->
 
@@ -161,13 +158,18 @@
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-api</artifactId>
         <version>2.14.1</version> <!-- Check for the latest version on the Log4j website -->
-    </dependency>
-    <dependency>
+</dependency>
+<dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-core</artifactId>
         <version>2.14.1</version>
     </dependency>
 
+<dependency>
+        <groupId>tech.grasshopper</groupId>
+        <artifactId>extentreports-cucumber7-adapter</artifactId>
+        <version>1.7.0</version>
+    </dependency>
   </dependencies>
 
   <build>

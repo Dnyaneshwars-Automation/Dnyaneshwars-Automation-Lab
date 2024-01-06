@@ -1,14 +1,14 @@
 package runner;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
+//import io.cucumber.testng.AbstractTestNGCucumberTests;
+//import io.cucumber.testng.CucumberOptions;
 
-//import org.junit.runner.RunWith;
+import org.junit.runner.RunWith;
 
-//import io.cucumber.junit.Cucumber;
-//import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
-//@RunWith(Cucumber.class)
+@RunWith(Cucumber.class)
 
 @CucumberOptions(
 		dryRun=false,
@@ -16,10 +16,22 @@ import io.cucumber.testng.CucumberOptions;
 		features="src/test/resources/Features",
 		glue={"stepdefination","hooks"},
 		tags= ("@SanityTestAutomation_Login"),
-		plugin= {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"}
+		plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
+// "html:target/cucumber-reports.html", "json:target/cucumber-reports.json",
 
-
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class TestRunner {
+// extends AbstractTestNGCucumberTests
+	
+//	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+//
+//		<dependency>
+//
+	
+//			<groupId>io.cucumber</groupId>
+//			<artifactId>cucumber-junit</artifactId>
+//			<version>7.13.0</version>
+//
+//		</dependency>
 
 }

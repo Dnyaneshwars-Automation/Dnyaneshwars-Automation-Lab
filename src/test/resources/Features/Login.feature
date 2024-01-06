@@ -1,7 +1,7 @@
 Feature: Validate Login Page
 
   @SanityTestAutomation_Login
-  Scenario Outline: login with invalid email and valid password
+  Scenario Outline: login with valid email and valid password
     Given user navigate to login page
     When user enterd "<email>" and "<password>"
     And click on login button

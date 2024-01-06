@@ -1,7 +1,5 @@
 package hooks;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
@@ -10,16 +8,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import factory.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import net.bytebuddy.utility.RandomString;
-import stepdefination.Login;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -44,23 +38,26 @@ public class MyHook {
 	}
 	
 	@After
-	public void tearDown(Scenario sc) {
-		if(sc.isFailed()==true) {
-			String rs=RandomString.make(6);
-			TakesScreenshot ts=(TakesScreenshot)driver;
-			File name=ts.getScreenshotAs(OutputType.FILE);
-			File location=new File("C:\\Users\\monal\\git\\Dnyaneshwars-Automation-Lab\\ScreenShots\\"+rs+".png");
+	public void tearDown(Scenario scenario) {
+		if (driver != null) {
+		if(scenario.isFailed()==true) {
 			try {
-				FileHandler.copy(name, location);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			final byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(screenshot, "image/png", scenario.getName());
+			}
+			catch(Exception e) {
+				 e.printStackTrace();
 			}
 		}
-		logger.info("Browser Teardown Successfully");
+		
+		}
 		driver.close();
+		logger.info("Browser Teardown Successfully");
 	}
 	
+	
+	
+
 	public void explicitlyWait(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(element));
